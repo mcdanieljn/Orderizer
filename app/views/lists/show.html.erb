@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @list.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @list.description %>
+</p>
+
+<p>
+  <strong>Creator:</strong>
+  <%= @list.user.email %>
+</p>
+
+<p>
+	<strong>Items:</strong>
+	<% @list.items.each do |item| %>
+
+	<p>
+		<%= item.name %>
+		[<%= item.number %>]
+	</p>
+	
+	<% end %>
+</p>
+
+<%= link_to 'Add Item to this List', new_item_path(id: @list.id), class: 'btn btn-success' %><br>
+
+<p>'Orderize this list!'</p><br>
+
+<%= link_to 'Edit', edit_list_path(@list) %> |
+<%= link_to 'Back', lists_path %>
